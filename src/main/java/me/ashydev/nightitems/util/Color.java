@@ -29,9 +29,6 @@ public class Color {
 
     public Color(String hex) {
         if (hex.startsWith("#")) hex = hex.substring(1);
-        int len = hex.length();
-        if (len != 6) throw new IllegalArgumentException("Hex must be 6 characters long");
-
 
         byte r = (byte) Integer.parseInt(hex.substring(0, 2), 16);
         byte g = (byte) Integer.parseInt(hex.substring(2, 4), 16);
