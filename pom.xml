@@ -86,12 +86,6 @@
             <version>2.11.3</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.NightNetwork</groupId>
-            <artifactId>NightServiceX</artifactId>
-            <version>0.0.1-dev</version>
-        </dependency>
-
         <!-- Gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
