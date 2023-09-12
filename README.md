@@ -1,13 +1,25 @@
 # Night Items - Item Framework
 ### NightItems is an item framework designed to make, making items in paper easier
 
+# Features
+
+- [x] Component based item system
+- [x] Base support for NBT and dynamic items
+- [x] Easy creation of items
+- [x] Simple Component System
+
+# TODO
+
+- [ ] Documentation
+
+
 # DISCLAIMER
 #### THIS FRAMEWORK DOES NOT WORK WITH SPIGOT, IT REQUIRES PAPER.
 
 # Maven & Gradle
 
-[![](https://jitpack.io/v/NightNetwork/NightItems.svg)](https://jitpack.io/#NightNetwork/NightItems)
 
+[![](https://jitpack.io/v/NightNetwork/NightItems.svg)](https://jitpack.io/#NightNetwork/NightItems)
 ## gradle
 ```groovy
 repositories {
