@@ -19,10 +19,7 @@ public interface ActionComponent extends DrawableComponent, DescribableComponent
         }
 
         if (getCoolDown() > 0)
-            input.add("&*Cooldown: " + getCoolDown() / 1000 + "s");
-
-        if (!isEmpty())
-            input.add("");
+            input.add("&8Cooldown: " + getCoolDown() / 1000 + "s");
 
         return input;
     }

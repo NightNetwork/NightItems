@@ -15,7 +15,6 @@ public interface ItemStat<T> extends DescribableComponent, Nameable, Container<T
         return input;
     }
 
-    Color getColor();
     String getOperator();
     OperatorPosition getOperatorPosition();
 

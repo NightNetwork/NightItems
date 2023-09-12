@@ -68,15 +68,14 @@ public abstract class AbstractItemStat<T> implements ItemStat<T> {
     @Override
     public String convert() {
         StringBuilder str = new StringBuilder();
-        str.append(getName()).append(": ").append(getColor().getHex("&"));
+        str.append("&7").append(getName()).append(": ").append(getColor().getHex("&#"));
 
         if (getOperatorPosition() == OperatorPosition.START)
             str.append(getOperator());
 
-        if (container.isNull())
-            str.append("null");
-
-
+        if (container.isNull()) {
+            return str.append("null").toString();
+        }
 
         if (!(get() instanceof Number)) str.append(container.convert());
         else str.append(NumberFormatter.format(((Number) get()).doubleValue(), 999_999_999));
