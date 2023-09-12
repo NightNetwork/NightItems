@@ -4,11 +4,6 @@ import de.tr7zw.changeme.nbtapi.NBTCompound;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import lombok.Getter;
 import lombok.Setter;
-import me.ashydev.miningsimulatorx.core.item.components.DescriptionComponent;
-import me.ashydev.miningsimulatorx.core.item.components.InfoComponent;
-import me.ashydev.miningsimulatorx.core.item.components.SimpleItemStat;
-import me.ashydev.miningsimulatorx.core.item.other.BasicNightItem;
-import me.ashydev.miningsimulatorx.core.item.other.ImplBasicNightItem;
 import me.ashydev.nightitems.item.component.ActionComponent;
 import me.ashydev.nightitems.item.component.ItemComponent;
 import me.ashydev.nightitems.item.component.SerializableComponent;
@@ -104,25 +99,7 @@ public class ItemFactory implements ItemBuilder<NightItem>, ItemValidator<NightI
 
         NightItem item = registry.get(id);
 
-        InfoComponent info = new InfoComponent(compound);
-        DescriptionComponent description = new DescriptionComponent(compound);
-
-
         List<ItemStat<?>> itemStats = new ArrayList<>();
-
-
-        NBTCompound stats = compound.getCompound("stats");
-
-        for (String s : stats.getKeys()) {
-            NBTCompound stat = stats.getCompound(s);
-            itemStats.add(SimpleItemStat.load(s, stat));
-        }
-
-
-
-        for (ItemComponent component : item.getComponents())
-            if (component instanceof ActionComponent) Bukkit.getPluginManager().registerEvents((Listener) component, plugin);
-
 
         AbstractNightItem i = new ImplNightItem(name, material, item.glowing(), item.unique(), item.getComponents());
         i.setupDrawables();

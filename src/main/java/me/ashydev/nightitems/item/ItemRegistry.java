@@ -3,11 +3,11 @@ package me.ashydev.nightitems.item;
 import it.unimi.dsi.fastutil.Hash;
 import lombok.Getter;
 import lombok.Setter;
-import me.ashydev.miningsimulatorx.MiningSimulatorX;
-import me.ashydev.miningsimulatorx.core.item.components.SimpleItemStat;
 import me.ashydev.nightitems.item.component.ActionComponent;
+import me.ashydev.nightitems.item.component.ItemComponent;
 import me.ashydev.nightitems.item.stats.ItemStat;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 
 import java.util.HashMap;
 
@@ -21,11 +21,14 @@ public class ItemRegistry {
     }
 
 
-    public void register(NightItem item) {
+    public void register(NightItem item, Plugin plugin) {
         items.put(item.getId(), item);
 
-        // register all actions
-        item.getComponents().stream().filter(component -> component instanceof ActionComponent).map(component -> (ActionComponent) component).forEach(action -> Bukkit.getPluginManager().registerEvents(action, MiningSimulatorX.getInstance()));
+        for (ItemComponent component : item.getComponents()) {
+            if (component instanceof ActionComponent) {
+                Bukkit.getPluginManager().registerEvents((ActionComponent) component, plugin);
+            }
+        }
     }
 
     public NightItem get(String id) {
